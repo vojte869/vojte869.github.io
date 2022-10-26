@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="description" content=" Tenisový oddíl TJ Sparta Kutná Hora, rezervace hraní " >
+  <meta name="keywords" content=" tenis, TJ Sparta, Kutná Hora, rezervace, hala, zimní sezona " >
+  <link rel="stylesheet" href="lib/style.css" />
+  <title>TK Sparta Kutná Hora - tenisový klub v Kutné Hoře</title>
+
+</head>
+ 
+<body>
+
+<?php
+
+echo "Hello world!" ;
+
+
+?>
+
+
+$id_spojeni = mysql_connect('wm155.wedos.net','w175271_evid','Tahac18!');
+
+$vysledek_vybrani = mysql_select_db('d175271_evid',$id_spojeni);
+
+$sql = "SELECT * FROM Evidence ";
+$id_vysledku = mysql_query($sql,$id_spojeni);
+if (!$id_vysledku)
+  die('Nepodařilo se nám načíst řádky z databáze.');
+
+while($fetch=MySQL_Fetch_Array($id_vysledku)){
+	
+$Jmeno=$fetch["Jmeno"];
+$Prijmeni=$fetch["Prijmeni"];
+$Email=$fetch["Email"];
+$News=$fetch["News"];
+
+echo $Email ;
+echo $Jmeno ;
+}			
+</body>
+ 
+</html>
